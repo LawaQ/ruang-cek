@@ -1,48 +1,47 @@
-# Ruang Cek Dongeng
+# Dongeng Digital — Dengar dan Temukan
 
-Website pendamping untuk e-book/audiobook *Dongeng Digital* kelas III SD. Website ini dipakai setelah siswa mendengarkan audio di Canva untuk mengisi tiga hubungan **sebab → akibat** pada setiap dongeng.
+Website pendamping e-book Canva untuk siswa kelas III SD. Anak memilih dongeng, menyimak audio/video, kemudian mengerjakan latihan sebab–akibat dengan tingkat bantuan berbeda.
 
-## Yang dilakukan website
+## Alur dan latihan
 
-- Menyediakan latihan kosong untuk 4 dongeng: Legenda Gunung Tampomas, Keong Mas, Lutung Kasarung, dan Malin Kundang.
-- Membolehkan jawaban siswa dengan kalimat yang berbeda-beda.
-- Memeriksa **kelengkapan** jawaban: ada sebab, akibat, dan bukti dari audio.
-- Mengenali beberapa peristiwa inti sebagai petunjuk tambahan, tanpa memberi label `Salah` hanya karena kata-kata siswa berbeda.
-- Menyimpan jawaban pada perangkat/browser yang sama menggunakan penyimpanan lokal.
+1. **Legenda Gunung Tampomas** — sebab tersedia; siswa memilih akibat yang tepat (pilihan ganda).
+2. **Keong Mas** — sebab tersedia; siswa menulis akibat dengan kalimat sendiri.
+3. **Lutung Kasarung** — akibat tersedia; siswa menulis sebab dengan kalimat sendiri.
+4. **Malin Kundang** — siswa memilih peristiwa lalu menulis sebab, akibat, dan bukti yang diingat dari audio.
 
-## Prinsip pemeriksaannya
+Pemeriksa esai memberi umpan balik tentang kelengkapan, bukan menyatakan jawaban salah hanya karena kalimatnya berbeda. Jawaban disimpan secara lokal di browser/perangkat yang sama.
 
-Website ini tidak memakai satu kunci jawaban tunggal untuk esai. Jawaban dianggap layak jika siswa dapat:
+## Menambahkan media
 
-1. menyebutkan peristiwa atau tindakan yang terjadi lebih dahulu (sebab);
-2. menjelaskan peristiwa yang muncul setelahnya (akibat);
-3. menyebutkan bukti dari audio; dan
-4. menghubungkan sebab dengan akibat secara masuk akal.
+File media belum disertakan. Letakkan berkas yang kamu unggah di folder `assets/media/`, lalu buka `assets/app.js` dan isi properti `media` pada data cerita. Contoh:
 
-Jika pemeriksa tidak mengenali kata siswa, tampilannya akan mengatakan **"bukan berarti salah"** dan meminta siswa menguji jawabannya lagi menggunakan audio. Ini disengaja agar siswa tidak dirugikan karena memakai sinonim atau susunan kalimat yang berbeda.
+```js
+{id: 'tampomas', ..., media: 'assets/media/tampomas.mp4', ...}
+```
 
-## Cara membuka
+Format harus didukung peramban siswa. Jika menggunakan video YouTube, kontrol dan tampilan player dikendalikan oleh YouTube; pemutar kustom ini ditujukan untuk file media yang dihosting bersama situs. Pastikan kamu berhak menggunakan dan membagikan file media yang diunggah.
 
-Buka `index.html` di peramban ponsel/laptop. Website ini tidak membutuhkan internet **untuk formulir dan pemeriksaannya**. Audio tetap diputar dari e-book Canva.
+Kontrol pemutar khusus menyediakan play/pause, timeline, waktu, volume, dan layar penuh. Berkas media tidak diunggah dalam repositori ini.
 
-Untuk pengumpulan melalui URL publik, unggah seluruh folder ini ke GitHub Pages atau Netlify Drop.
+## Menjalankan dan deploy
 
-## Audio
+Buka `index.html` atau jalankan server statis sederhana dari folder ini, misalnya:
 
-Saat ini halaman hanya menampilkan pengingat agar siswa memutar audio dari Canva. Tidak ada video/audio yang disalin ke website.
+```bash
+python3 -m http.server 8000
+```
 
-Sumber audio rujukan pembuat:
+Publikasi: GitHub Pages menggunakan branch `main` dan root folder.
 
-1. Legenda Gunung Tampomas — https://youtu.be/jLrSJhhRMns?si=FBqZL_1nJK7_3O5m
-2. Keong Mas — https://youtu.be/KjizbU1aQ6w?feature=shared
-3. Lutung Kasarung — https://youtu.be/0uyud9lFlvc?feature=shared
-4. Malin Kundang — https://youtu.be/dvfiAdgfkJc?feature=shared
+## Catatan teknis
 
-## Mengubah kata kunci atau petunjuk
+- Tampilan responsif untuk ponsel dan desktop.
+- Semua interaksi utama berjalan tanpa layanan backend.
+- Google Fonts dimuat daring; jika offline, font fallback akan dipakai.
+- Data jawaban hanya tersimpan pada browser/perangkat tersebut, bukan terkirim ke guru.
+- Kunci pilihan ganda Cerita 1 berada di `assets/app.js`; esai pada Cerita 2–4 tetap diperiksa dengan panduan dan audio.
+- Materi soal disusun dari isi dongeng dan ringkasan yang tersedia. Sebelum digunakan siswa, tinjau kembali kecocokannya dengan versi audio/video yang akan dipasang.
 
-Buka `assets/app.js`, lalu cari data cerita (`const stories`). Pada setiap cerita tersedia:
-
-- `prompts`: judul bagian, instruksi singkat, dan petunjuk yang dilihat siswa.
-- `pairs`: kelompok kata yang mewakili beberapa pasangan sebab–akibat. Tambahkan sinonim di dalam daftar ini jika diperlukan.
-
-Penting: kata kunci hanya memberi petunjuk tambahan; kata kunci tidak mengubah jawaban siswa menjadi "salah".
+Repositori: https://github.com/LawaQ/ruang-cek
+Website: https://lawaq.github.io/ruang-cek/
+```

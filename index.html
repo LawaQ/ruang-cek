@@ -3,114 +3,144 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#216a57">
-  <title>Ruang Cek Dongeng</title>
+  <meta name="theme-color" content="#f8f4e8">
+  <meta name="description" content="Dengarkan dongeng, lalu temukan hubungan sebab dan akibat dengan cara menyenangkan.">
+  <title>Dongeng Digital — Dengar dan Temukan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
   <header class="topbar">
-    <a class="brand" href="#beranda" aria-label="Ruang Cek Dongeng, kembali ke beranda">
-      <span class="brand-mark">♪</span>
-      <span>Ruang Cek Dongeng</span>
+    <a class="brand" href="#home" id="brandHome" aria-label="Dongeng Digital, kembali ke beranda">
+      <span class="brand-icon" aria-hidden="true">✳</span>
+      <span>dongeng<span class="brand-light">digital</span></span>
     </a>
-    <button id="guideButton" class="text-button" type="button">Cara memakai</button>
+    <nav class="top-actions" aria-label="Menu utama">
+      <span class="listen-note"><span class="sound-dot"></span> Teman belajar menyimak</span>
+      <button class="help-button" id="helpButton" type="button"><span aria-hidden="true">?</span> Cara pakai</button>
+    </nav>
   </header>
 
-  <main class="wrap">
-    <section id="beranda" class="hero" aria-labelledby="hero-title">
-      <p class="eyebrow">Teman belajar e-book dongeng digital</p>
-      <h1 id="hero-title">Dengar, pikirkan,<br><em>lalu cek jawabanmu.</em></h1>
-      <p class="hero-copy">Tuliskan sebab dan akibat dari peristiwa dalam dongeng. Ruang ini tidak mencari kalimat yang persis sama; ruang ini membantumu memastikan jawabanmu <strong>masuk akal, lengkap, dan punya bukti dari audio</strong>.</p>
-      <div class="hero-notes">
-        <div><span class="note-icon">1</span><span>Dengarkan audio dongeng di e-book Canva.</span></div>
-        <div><span class="note-icon">2</span><span>Jawab dengan bahasamu sendiri.</span></div>
-        <div><span class="note-icon">3</span><span>Gunakan cek mandiri untuk memperbaiki jawaban.</span></div>
+  <main>
+    <section class="home-screen" id="homeScreen">
+      <div class="page-wrap">
+        <section class="hero" aria-labelledby="heroTitle">
+          <div class="hero-copy">
+            <p class="eyebrow"><span class="eyebrow-star">✳</span> Dengar cerita. Temukan hubungannya.</p>
+            <h1 id="heroTitle">Setiap cerita punya <em>sebab</em> dan <em>akibat.</em></h1>
+            <p class="hero-description">Yuk, dengarkan dongeng sampai selesai. Lalu cari tahu apa yang terjadi dan mengapa hal itu bisa terjadi.</p>
+            <a class="hero-cta" href="#pilihDongeng">Pilih dongeng <span aria-hidden="true">↓</span></a>
+            <div class="hero-footnote"><span class="mini-sparkle">✦</span> Jawab dengan kata-katamu sendiri!</div>
+          </div>
+          <div class="hero-art" aria-hidden="true">
+            <div class="sun-disc"></div>
+            <div class="art-cloud cloud-one"></div><div class="art-cloud cloud-two"></div>
+            <div class="hill hill-back"></div><div class="hill hill-front"></div>
+            <div class="open-book"><div class="book-left"></div><div class="book-right"></div><span class="book-mark">✦</span></div>
+            <span class="art-star star-one">✦</span><span class="art-star star-two">✧</span><span class="art-star star-three">✦</span>
+            <span class="art-caption">petualangan menunggu</span>
+          </div>
+          <div class="hero-index"><span>01</span><i></i><span>04</span></div>
+        </section>
+
+        <section class="how-strip" aria-label="Cara belajar">
+          <div class="how-item"><span class="how-number">1</span><div><strong>Dengarkan</strong><small>Ikuti jalan ceritanya</small></div></div>
+          <span class="how-separator" aria-hidden="true">→</span>
+          <div class="how-item"><span class="how-number">2</span><div><strong>Pikirkan</strong><small>Apa sebab dan akibatnya?</small></div></div>
+          <span class="how-separator" aria-hidden="true">→</span>
+          <div class="how-item"><span class="how-number">3</span><div><strong>Coba jawab</strong><small>Gunakan bahasamu sendiri</small></div></div>
+        </section>
+
+        <section class="story-section" id="pilihDongeng" aria-labelledby="storyHeading">
+          <div class="section-intro">
+            <div><p class="eyebrow">Pilih petualanganmu</p><h2 id="storyHeading">Dongeng apa yang ingin kamu dengar?</h2></div>
+            <span class="story-count"><b>4</b> cerita</span>
+          </div>
+          <div class="story-grid" id="storyCards"></div>
+        </section>
+
+        <footer class="site-footer"><span>✳</span> Belajar menyimak, satu cerita pada satu waktu.</footer>
       </div>
     </section>
 
-    <section class="story-section" aria-labelledby="pilih-cerita">
-      <div class="section-heading">
-        <p class="eyebrow">Mulai latihan</p>
-        <h2 id="pilih-cerita">Pilih dongengmu</h2>
-      </div>
-      <div id="storyCards" class="story-grid"></div>
-    </section>
+    <section class="story-screen" id="storyScreen" hidden>
+      <div class="page-wrap story-wrap">
+        <button class="back-link" id="backHome" type="button"><span aria-hidden="true">←</span> Semua dongeng</button>
+        <div class="story-layout">
+          <article class="lesson-main">
+            <div class="lesson-heading">
+              <p class="eyebrow" id="storyTag"></p>
+              <h1 id="storyTitle"></h1>
+              <p id="storyDescription" class="lesson-description"></p>
+            </div>
 
-    <section id="latihan" class="activity-section" hidden aria-live="polite">
-      <button id="backButton" class="back-button" type="button">← Pilih dongeng lain</button>
-      <div class="activity-heading">
-        <p id="storyTag" class="eyebrow"></p>
-        <h2 id="storyTitle"></h2>
-        <p id="storyInstruction"></p>
-      </div>
+            <section class="media-card" aria-label="Pemutar cerita">
+              <div class="media-frame" id="mediaFrame">
+                <video id="storyVideo" playsinline preload="metadata" aria-label="Video dongeng"></video>
+                <div class="media-placeholder" id="mediaPlaceholder">
+                  <div class="placeholder-decoration decor-left">✦</div><div class="placeholder-decoration decor-right">✧</div>
+                  <div class="play-medallion" aria-hidden="true">▶</div>
+                  <strong>Putar cerita saat siap</strong>
+                  <span id="mediaLabel">Media cerita belum ditambahkan.</span>
+                </div>
+              </div>
+              <div class="media-controls">
+                <button class="play-toggle" id="playToggle" type="button" aria-label="Putar video">▶</button>
+                <span class="media-time" id="currentTime">00:00</span>
+                <input class="timeline" id="timeline" type="range" min="0" max="100" value="0" aria-label="Posisi video">
+                <span class="media-time" id="duration">00:00</span>
+                <button class="volume-toggle" id="volumeToggle" type="button" aria-label="Bisukan suara">◖</button>
+                <button class="fullscreen-toggle" id="fullscreenToggle" type="button" aria-label="Layar penuh">⛶</button>
+              </div>
+              <div class="media-caption"><span class="caption-icon">♪</span><span id="mediaCaption">Putar ulang bagian cerita jika kamu ingin menyimak lagi.</span></div>
+            </section>
 
-      <div id="audioNotice" class="audio-notice">
-        <span class="audio-icon">♪</span>
-        <div><strong>Audio diputar dari e-book Canva.</strong><br><span>Jika ingin mendengar ulang, kembali ke halaman audio pada e-book lalu kembali lagi ke sini.</span></div>
-      </div>
+            <section class="exercise-section" aria-labelledby="exerciseTitle">
+              <div class="exercise-title-row">
+                <div><p class="eyebrow">Sekarang giliranmu</p><h2 id="exerciseTitle">Latihan sebab dan akibat</h2></div>
+                <span class="level-chip" id="levelChip"></span>
+              </div>
+              <p class="exercise-intro" id="exerciseIntro"></p>
+              <div id="exerciseContent"></div>
+            </section>
+          </article>
 
-      <div class="how-card">
-        <strong>Ingat pola ini:</strong>
-        <span class="cause-chip">SEBAB</span><span class="arrow">→</span><span class="effect-chip">AKIBAT</span>
-        <p><b>Sebab</b> adalah hal yang terjadi atau dilakukan lebih dulu. <b>Akibat</b> adalah peristiwa yang terjadi setelahnya.</p>
-      </div>
-
-      <div id="rounds" class="rounds"></div>
-
-      <div class="save-row">
-        <button id="saveAllButton" class="secondary-button" type="button">Simpan jawabanku di perangkat ini</button>
-        <span id="saveState" role="status"></span>
+          <aside class="lesson-aside">
+            <div class="listen-card">
+              <div class="listen-illustration" aria-hidden="true"><span class="listen-blob"></span><span class="headphone">♫</span><span class="listen-spark s1">✦</span><span class="listen-spark s2">✧</span></div>
+              <p class="eyebrow">Misi menyimak</p>
+              <h3>Pasang telinga, buka imajinasi!</h3>
+              <p>Dengarkan siapa tokohnya, apa yang ia lakukan, dan apa yang terjadi sesudahnya.</p>
+            </div>
+            <div class="cause-effect-card">
+              <p class="eyebrow">Ingat ya</p>
+              <div class="relation"><span class="cause-pill">SEBAB</span><span class="relation-arrow">→</span><span class="effect-pill">AKIBAT</span></div>
+              <p>Sebab terjadi lebih dahulu. Akibat adalah hal yang terjadi setelahnya.</p>
+            </div>
+            <div class="self-check-card"><span class="check-star">✦</span><p><b>Jawaban boleh berbeda.</b> Yang penting, cocok dengan peristiwa dalam cerita dan bisa kamu jelaskan.</p></div>
+          </aside>
+        </div>
+        <footer class="story-footer"><span>Dongeng Digital</span><button id="anotherStory" type="button">Pilih dongeng lain →</button></footer>
       </div>
     </section>
   </main>
 
-  <dialog id="guideDialog" class="guide-dialog">
-    <div class="dialog-content">
-      <button id="closeGuide" class="close-button" type="button" aria-label="Tutup">×</button>
-      <p class="eyebrow">Panduan singkat</p>
-      <h2>Cara memakai Ruang Cek</h2>
+  <dialog id="helpDialog" class="help-dialog">
+    <div class="dialog-inner">
+      <button class="dialog-close" id="closeHelp" type="button" aria-label="Tutup">×</button>
+      <p class="eyebrow">Panduan kecil</p><h2>Begini cara berpetualang</h2>
       <ol>
-        <li>Dengarkan satu bagian dongeng dari e-book Canva.</li>
-        <li>Pilih peristiwa yang kamu ingat, lalu tulis <b>sebab</b> dan <b>akibatnya</b>.</li>
-        <li>Tulis juga kata atau bagian audio yang menjadi <b>buktimu</b>.</li>
-        <li>Tekan <b>Periksa jawabanku</b>. Cek ini memberi petunjuk, bukan hanya benar atau salah.</li>
-        <li>Jika belum lengkap, dengarkan ulang dan perbaiki jawabanmu.</li>
+        <li>Pilih dongeng yang ingin kamu dengarkan.</li>
+        <li>Tekan tombol putar. Dengarkan cerita dengan saksama.</li>
+        <li>Kerjakan latihan sesuai petunjuk pada dongeng itu.</li>
+        <li>Tekan <b>Periksa jawabanku</b> untuk mendapatkan petunjuk.</li>
+        <li>Kalimatmu tidak harus sama dengan contoh. Dengarkan lagi jika perlu.</li>
       </ol>
-      <p class="tip">Jawabanmu boleh menggunakan kalimat yang berbeda dari temanmu, selama peristiwanya sesuai dengan dongeng dan sebabnya berkaitan dengan akibatnya.</p>
+      <p class="dialog-note">Pemeriksa membantu melihat kelengkapan jawaban. Untuk jawaban esai, cocokkan kembali dengan audio karena satu peristiwa bisa dijelaskan dengan berbagai kata.</p>
     </div>
   </dialog>
-
-  <template id="roundTemplate">
-    <article class="round-card">
-      <div class="round-header">
-        <span class="round-number"></span>
-        <div><h3></h3><p></p></div>
-      </div>
-      <div class="form-grid">
-        <label class="field cause-field"><span>SEBAB</span>
-          <textarea class="cause-input" rows="3" placeholder="Apa yang terjadi lebih dulu?"></textarea>
-        </label>
-        <span class="form-arrow" aria-hidden="true">→</span>
-        <label class="field effect-field"><span>AKIBAT</span>
-          <textarea class="effect-input" rows="3" placeholder="Apa yang terjadi setelah itu?"></textarea>
-        </label>
-      </div>
-      <label class="field evidence-field"><span>BUKTI DARI AUDIO</span>
-        <textarea class="evidence-input" rows="2" placeholder="Tuliskan kata, tokoh, atau bagian cerita yang kamu dengar."></textarea>
-      </label>
-      <div class="check-actions">
-        <button class="check-button" type="button">Periksa jawabanku</button>
-        <button class="hint-button" type="button">Butuh petunjuk?</button>
-      </div>
-      <div class="hint-box" hidden></div>
-      <div class="feedback-box" hidden aria-live="polite"></div>
-      <div class="reflection" hidden>
-        <p><b>Setelah mengecek:</b> jawabanmu sudah lengkap atau perlu diperbaiki?</p>
-        <label><input class="reflection-choice" type="radio" value="sudah lengkap"> Sudah lengkap</label>
-        <label><input class="reflection-choice" type="radio" value="perlu diperbaiki"> Perlu diperbaiki</label>
-      </div>
-    </article>
-  </template>
 
   <script src="assets/app.js"></script>
 </body>
