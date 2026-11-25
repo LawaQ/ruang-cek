@@ -3,145 +3,112 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#f8f4e8">
-  <meta name="description" content="Dengarkan dongeng, lalu temukan hubungan sebab dan akibat dengan cara menyenangkan.">
-  <title>Dongeng Digital — Dengar dan Temukan</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,800&display=swap" rel="stylesheet">
+  <meta name="theme-color" content="#fbf5e8">
+  <meta name="description" content="Teman belajar dongeng digital: dengarkan cerita, lalu temukan hubungan sebab dan akibat.">
+  <title>Dongeng Digital — Dengar & Temukan</title>
   <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
-  <header class="topbar">
-    <a class="brand" href="#home" id="brandHome" aria-label="Dongeng Digital, kembali ke beranda">
-      <span class="brand-icon" aria-hidden="true">✳</span>
-      <span>dongeng<span class="brand-light">digital</span></span>
+  <header class="site-header">
+    <a class="brand" href="#beranda" aria-label="Dongeng Digital, beranda">
+      <span class="brand-icon" aria-hidden="true">✿</span>
+      <span>Dongeng <b>Digital</b></span>
     </a>
-    <nav class="top-actions" aria-label="Menu utama">
-      <span class="listen-note"><span class="sound-dot"></span> Teman belajar menyimak</span>
-      <button class="help-button" id="helpButton" type="button"><span aria-hidden="true">?</span> Cara pakai</button>
+    <nav class="header-nav" aria-label="Navigasi utama">
+      <a href="#cerita">Pilih cerita</a>
+      <button id="guideButton" class="guide-trigger" type="button">Cara belajar <span aria-hidden="true">↗</span></button>
     </nav>
   </header>
 
-  <main>
-    <section class="home-screen" id="homeScreen">
-      <div class="page-wrap">
-        <section class="hero" aria-labelledby="heroTitle">
-          <div class="hero-copy">
-            <p class="eyebrow"><span class="eyebrow-star">✳</span> Dengar cerita. Temukan hubungannya.</p>
-            <h1 id="heroTitle">Setiap cerita punya <em>sebab</em> dan <em>akibat.</em></h1>
-            <p class="hero-description">Yuk, dengarkan dongeng sampai selesai. Lalu cari tahu apa yang terjadi dan mengapa hal itu bisa terjadi.</p>
-            <a class="hero-cta" href="#pilihDongeng">Pilih dongeng <span aria-hidden="true">↓</span></a>
-            <div class="hero-footnote"><span class="mini-sparkle">✦</span> Jawab dengan kata-katamu sendiri!</div>
+  <main id="beranda">
+    <section class="hero" aria-labelledby="heroTitle">
+      <div class="hero-inner">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="eyebrow-dot"></span>Teman belajar Bahasa Indonesia · Kelas III</p>
+          <h1 id="heroTitle">Dengar dongengnya.<br><span>Temukan ceritanya.</span></h1>
+          <p class="hero-text">Yuk, dengarkan cerita rakyat dan cari tahu: <strong>apa sebabnya, apa akibatnya?</strong> Kamu boleh menjawab dengan bahasamu sendiri.</p>
+          <a class="primary-link" href="#cerita">Ayo pilih dongeng <span aria-hidden="true">↓</span></a>
+          <div class="learning-trail" aria-label="Alur belajar">
+            <span><b>01</b> Dengarkan</span><i></i><span><b>02</b> Pikirkan</span><i></i><span><b>03</b> Jawab</span>
           </div>
-          <div class="hero-art" aria-hidden="true">
-            <div class="sun-disc"></div>
-            <div class="art-cloud cloud-one"></div><div class="art-cloud cloud-two"></div>
-            <div class="hill hill-back"></div><div class="hill hill-front"></div>
-            <div class="open-book"><div class="book-left"></div><div class="book-right"></div><span class="book-mark">✦</span></div>
-            <span class="art-star star-one">✦</span><span class="art-star star-two">✧</span><span class="art-star star-three">✦</span>
-            <span class="art-caption">petualangan menunggu</span>
-          </div>
-          <div class="hero-index"><span>01</span><i></i><span>04</span></div>
-        </section>
-
-        <section class="how-strip" aria-label="Cara belajar">
-          <div class="how-item"><span class="how-number">1</span><div><strong>Dengarkan</strong><small>Ikuti jalan ceritanya</small></div></div>
-          <span class="how-separator" aria-hidden="true">→</span>
-          <div class="how-item"><span class="how-number">2</span><div><strong>Pikirkan</strong><small>Apa sebab dan akibatnya?</small></div></div>
-          <span class="how-separator" aria-hidden="true">→</span>
-          <div class="how-item"><span class="how-number">3</span><div><strong>Coba jawab</strong><small>Gunakan bahasamu sendiri</small></div></div>
-        </section>
-
-        <section class="story-section" id="pilihDongeng" aria-labelledby="storyHeading">
-          <div class="section-intro">
-            <div><p class="eyebrow">Pilih petualanganmu</p><h2 id="storyHeading">Dongeng apa yang ingin kamu dengar?</h2></div>
-            <span class="story-count"><b>4</b> cerita</span>
-          </div>
-          <div class="story-grid" id="storyCards"></div>
-        </section>
-
-        <footer class="site-footer"><span>✳</span> Belajar menyimak, satu cerita pada satu waktu.</footer>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <div class="sun"></div>
+          <div class="cloud cloud-one"></div><div class="cloud cloud-two"></div>
+          <div class="hill hill-back"></div><div class="hill hill-front"></div>
+          <div class="storybook"><div class="book-spine"></div><span class="book-spark">✦</span><span class="book-leaf leaf-one">❧</span><span class="book-leaf leaf-two">❧</span><b>DONGENG<br>DIMULAI</b></div>
+          <span class="art-star star-one">✦</span><span class="art-star star-two">✧</span>
+          <span class="art-caption">Setiap cerita menyimpan<br>sebab dan akibat ✨</span>
+        </div>
       </div>
+      <div class="hero-bottom-shape" aria-hidden="true"></div>
     </section>
 
-    <section class="story-screen" id="storyScreen" hidden>
-      <div class="page-wrap story-wrap">
-        <button class="back-link" id="backHome" type="button"><span aria-hidden="true">←</span> Semua dongeng</button>
-        <div class="story-layout">
-          <article class="lesson-main">
-            <div class="lesson-heading">
-              <p class="eyebrow" id="storyTag"></p>
-              <h1 id="storyTitle"></h1>
-              <p id="storyDescription" class="lesson-description"></p>
-            </div>
-
-            <section class="media-card" aria-label="Pemutar cerita">
-              <div class="media-frame" id="mediaFrame">
-                <video id="storyVideo" playsinline preload="metadata" aria-label="Video dongeng"></video>
-                <div class="media-placeholder" id="mediaPlaceholder">
-                  <div class="placeholder-decoration decor-left">✦</div><div class="placeholder-decoration decor-right">✧</div>
-                  <div class="play-medallion" aria-hidden="true">▶</div>
-                  <strong>Putar cerita saat siap</strong>
-                  <span id="mediaLabel">Media cerita belum ditambahkan.</span>
-                </div>
-              </div>
-              <div class="media-controls">
-                <button class="play-toggle" id="playToggle" type="button" aria-label="Putar video">▶</button>
-                <span class="media-time" id="currentTime">00:00</span>
-                <input class="timeline" id="timeline" type="range" min="0" max="100" value="0" aria-label="Posisi video">
-                <span class="media-time" id="duration">00:00</span>
-                <button class="volume-toggle" id="volumeToggle" type="button" aria-label="Bisukan suara">◖</button>
-                <button class="fullscreen-toggle" id="fullscreenToggle" type="button" aria-label="Layar penuh">⛶</button>
-              </div>
-              <div class="media-caption"><span class="caption-icon">♪</span><span id="mediaCaption">Putar ulang bagian cerita jika kamu ingin menyimak lagi.</span></div>
-            </section>
-
-            <section class="exercise-section" aria-labelledby="exerciseTitle">
-              <div class="exercise-title-row">
-                <div><p class="eyebrow">Sekarang giliranmu</p><h2 id="exerciseTitle">Latihan sebab dan akibat</h2></div>
-                <span class="level-chip" id="levelChip"></span>
-              </div>
-              <p class="exercise-intro" id="exerciseIntro"></p>
-              <div id="exerciseContent"></div>
-            </section>
-          </article>
-
-          <aside class="lesson-aside">
-            <div class="listen-card">
-              <div class="listen-illustration" aria-hidden="true"><span class="listen-blob"></span><span class="headphone">♫</span><span class="listen-spark s1">✦</span><span class="listen-spark s2">✧</span></div>
-              <p class="eyebrow">Misi menyimak</p>
-              <h3>Pasang telinga, buka imajinasi!</h3>
-              <p>Dengarkan siapa tokohnya, apa yang ia lakukan, dan apa yang terjadi sesudahnya.</p>
-            </div>
-            <div class="cause-effect-card">
-              <p class="eyebrow">Ingat ya</p>
-              <div class="relation"><span class="cause-pill">SEBAB</span><span class="relation-arrow">→</span><span class="effect-pill">AKIBAT</span></div>
-              <p>Sebab terjadi lebih dahulu. Akibat adalah hal yang terjadi setelahnya.</p>
-            </div>
-            <div class="self-check-card"><span class="check-star">✦</span><p><b>Jawaban boleh berbeda.</b> Yang penting, cocok dengan peristiwa dalam cerita dan bisa kamu jelaskan.</p></div>
-          </aside>
-        </div>
-        <footer class="story-footer"><span>Dongeng Digital</span><button id="anotherStory" type="button">Pilih dongeng lain →</button></footer>
+    <section id="cerita" class="stories-section" aria-labelledby="storiesTitle">
+      <div class="section-head">
+        <div><p class="eyebrow">Pilih petualanganmu</p><h2 id="storiesTitle">Cerita apa hari ini?</h2></div>
+        <p class="section-note">Empat dongeng, empat cara<br>belajar sebab dan akibat.</p>
       </div>
+      <div id="storyGrid" class="story-grid"></div>
+    </section>
+
+    <section id="storyPage" class="story-page" hidden aria-live="polite">
+      <button id="backButton" class="back-link" type="button"><span aria-hidden="true">←</span> Semua dongeng</button>
+      <div id="storyBanner" class="story-banner">
+        <div class="story-banner-copy">
+          <p id="storyTag" class="eyebrow"></p>
+          <h2 id="storyTitle"></h2>
+          <p id="storyDescription" class="story-description"></p>
+          <div id="exerciseBadge" class="exercise-badge"></div>
+        </div>
+        <div id="bannerArt" class="banner-art" aria-hidden="true"></div>
+      </div>
+
+      <section class="listen-section" aria-labelledby="listenTitle">
+        <div class="section-label"><span class="section-number">1</span><div><p class="eyebrow">Dengarkan dulu</p><h3 id="listenTitle">Siapkan telingamu 👂</h3></div></div>
+        <p id="listenInstruction" class="section-intro">Dengarkan dongengnya dengan saksama. Kalau ingin mendengar ulang, gunakan tombol putar.</p>
+        <div class="media-player" id="mediaPlayer">
+          <video id="storyVideo" preload="metadata" playsinline></video>
+          <div id="mediaPlaceholder" class="media-placeholder">
+            <span class="placeholder-note">🎧</span>
+            <strong>Video cerita akan hadir di sini</strong>
+            <span>Putar saat file dongeng sudah ditambahkan.</span>
+          </div>
+          <div class="media-controls">
+            <button id="playButton" class="play-button" type="button" aria-label="Putar media" disabled><span class="play-icon">▶</span></button>
+            <span id="currentTime" class="time-display">0:00</span>
+            <input id="seekBar" class="seek-bar" type="range" min="0" max="1000" value="0" aria-label="Posisi media" disabled>
+            <span id="duration" class="time-display">0:00</span>
+            <button id="volumeButton" class="volume-button" type="button" aria-label="Suara" disabled>🔊</button>
+          </div>
+        </div>
+        <p id="mediaHint" class="media-hint">File media belum dipasang. Latihan tetap bisa dilihat, tetapi tambahkan video/audio sebelum siswa mengerjakan.</p>
+      </section>
+
+      <section class="practice-section" aria-labelledby="practiceTitle">
+        <div class="section-label"><span class="section-number section-number-coral">2</span><div><p class="eyebrow">Sekarang giliranmu</p><h3 id="practiceTitle">Ayo berpikir!</h3></div></div>
+        <p id="practiceInstruction" class="section-intro"></p>
+        <div class="cause-effect-key"><span class="key-cause">SEBAB</span><span class="key-arrow">→</span><span class="key-effect">AKIBAT</span><span class="key-note">Sebab terjadi lebih dulu. Akibat terjadi setelahnya.</span></div>
+        <div id="exerciseArea"></div>
+      </section>
     </section>
   </main>
 
-  <dialog id="helpDialog" class="help-dialog">
+  <footer class="site-footer"><span class="footer-flower">✿</span><span>Belajar dari cerita, tumbuh jadi bijaksana.</span><span class="footer-grade">Bahasa Indonesia · Kelas III SD</span></footer>
+
+  <dialog id="guideDialog" class="guide-dialog">
     <div class="dialog-inner">
-      <button class="dialog-close" id="closeHelp" type="button" aria-label="Tutup">×</button>
-      <p class="eyebrow">Panduan kecil</p><h2>Begini cara berpetualang</h2>
-      <ol>
-        <li>Pilih dongeng yang ingin kamu dengarkan.</li>
-        <li>Tekan tombol putar. Dengarkan cerita dengan saksama.</li>
-        <li>Kerjakan latihan sesuai petunjuk pada dongeng itu.</li>
-        <li>Tekan <b>Periksa jawabanku</b> untuk mendapatkan petunjuk.</li>
-        <li>Kalimatmu tidak harus sama dengan contoh. Dengarkan lagi jika perlu.</li>
+      <button id="closeGuide" class="close-button" type="button" aria-label="Tutup panduan">×</button>
+      <p class="eyebrow">Panduan kecil</p><h2>Cara belajar di sini</h2>
+      <ol class="guide-list">
+        <li><span>1</span><div><b>Pilih satu dongeng</b><br>Baca petunjuk latihannya dulu.</div></li>
+        <li><span>2</span><div><b>Dengarkan ceritanya</b><br>Perhatikan tokoh dan peristiwa yang terjadi.</div></li>
+        <li><span>3</span><div><b>Temukan sebab dan akibat</b><br>Tulis dengan kata-katamu sendiri.</div></li>
+        <li><span>4</span><div><b>Periksa dan perbaiki</b><br>Baca petunjuk umpan balik, lalu coba lagi jika perlu.</div></li>
       </ol>
-      <p class="dialog-note">Pemeriksa membantu melihat kelengkapan jawaban. Untuk jawaban esai, cocokkan kembali dengan audio karena satu peristiwa bisa dijelaskan dengan berbagai kata.</p>
+      <p class="guide-note">Tidak harus sama persis dengan jawaban teman. Yang penting, jawabanmu didukung oleh cerita yang kamu dengar.</p>
     </div>
   </dialog>
-
   <script src="assets/app.js"></script>
 </body>
 </html>
